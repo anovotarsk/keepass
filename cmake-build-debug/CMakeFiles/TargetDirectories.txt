@@ -1,0 +1,14 @@
+/home/anovotarskyi/Desktop/masha_dyplom/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/anovotarskyi/Desktop/masha_dyplom/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/anovotarskyi/Desktop/masha_dyplom/cmake-build-debug/CMakeFiles/keepass.dir
+/home/anovotarskyi/Desktop/masha_dyplom/cmake-build-debug/CMakeFiles/keepass_autogen.dir
+/home/anovotarskyi/Desktop/masha_dyplom/cmake-build-debug/src/CMakeFiles/rebuild_cache.dir
+/home/anovotarskyi/Desktop/masha_dyplom/cmake-build-debug/src/CMakeFiles/edit_cache.dir
+/home/anovotarskyi/Desktop/masha_dyplom/cmake-build-debug/src/CMakeFiles/keepass_src.dir
+/home/anovotarskyi/Desktop/masha_dyplom/cmake-build-debug/src/CMakeFiles/keepass_src_autogen.dir
+/home/anovotarskyi/Desktop/masha_dyplom/cmake-build-debug/libkeepass/CMakeFiles/rebuild_cache.dir
+/home/anovotarskyi/Desktop/masha_dyplom/cmake-build-debug/libkeepass/CMakeFiles/edit_cache.dir
+/home/anovotarskyi/Desktop/masha_dyplom/cmake-build-debug/libkeepass/src/CMakeFiles/rebuild_cache.dir
+/home/anovotarskyi/Desktop/masha_dyplom/cmake-build-debug/libkeepass/src/CMakeFiles/edit_cache.dir
+/home/anovotarskyi/Desktop/masha_dyplom/cmake-build-debug/libkeepass/src/CMakeFiles/keepasslib.dir
+/home/anovotarskyi/Desktop/masha_dyplom/cmake-build-debug/libkeepass/src/CMakeFiles/keepasslib_autogen.dir
