@@ -1,0 +1,188 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				},
+				{
+					"build" : "src",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "src",
+					"targetIndexes" : 
+					[
+						2,
+						3
+					]
+				},
+				{
+					"build" : "libkeepass",
+					"childIndexes" : 
+					[
+						3
+					],
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "libkeepass"
+				},
+				{
+					"build" : "libkeepass/src",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 3,
+					"source" : "libkeepass/src",
+					"targetIndexes" : 
+					[
+						4,
+						5
+					]
+				}
+			],
+			"name" : "Build",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "keepass",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "keepass_src",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						2,
+						3
+					]
+				},
+				{
+					"childIndexes" : 
+					[
+						3
+					],
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "libkeepass",
+					"parentIndex" : 0
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "keepasslib",
+					"parentIndex" : 2,
+					"targetIndexes" : 
+					[
+						4,
+						5
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "keepass::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-keepass-Build-50a6cf63b4701324e055.json",
+					"name" : "keepass",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "keepass_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-keepass_autogen-Build-c87857f99747807e5e32.json",
+					"name" : "keepass_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "keepass_src::@145eef247bfb46b6828c",
+					"jsonFile" : "target-keepass_src-Build-279d763dcae5f75053d3.json",
+					"name" : "keepass_src",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "keepass_src_autogen::@145eef247bfb46b6828c",
+					"jsonFile" : "target-keepass_src_autogen-Build-7ca0c84c03c576c0372a.json",
+					"name" : "keepass_src_autogen",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "keepasslib::@c3e510ef338f6d5d5def",
+					"jsonFile" : "target-keepasslib-Build-065363b091da6547b568.json",
+					"name" : "keepasslib",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "keepasslib_autogen::@c3e510ef338f6d5d5def",
+					"jsonFile" : "target-keepasslib_autogen-Build-64978311db748176fa51.json",
+					"name" : "keepasslib_autogen",
+					"projectIndex" : 3
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/anovotarskyi/Desktop/masha_dyplom/build",
+		"source" : "/home/anovotarskyi/Desktop/masha_dyplom"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}
