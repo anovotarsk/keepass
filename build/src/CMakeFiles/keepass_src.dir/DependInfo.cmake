@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/anovotarskyi/Desktop/masha_dyplom/src/ArgsParser.cpp" "/home/anovotarskyi/Desktop/masha_dyplom/build/src/CMakeFiles/keepass_src.dir/ArgsParser.cpp.o"
+  "/home/anovotarskyi/Desktop/masha_dyplom/src/UTreeWidgetItem.cpp" "/home/anovotarskyi/Desktop/masha_dyplom/build/src/CMakeFiles/keepass_src.dir/UTreeWidgetItem.cpp.o"
   "/home/anovotarskyi/Desktop/masha_dyplom/build/src/keepass_src_autogen/mocs_compilation.cpp" "/home/anovotarskyi/Desktop/masha_dyplom/build/src/CMakeFiles/keepass_src.dir/keepass_src_autogen/mocs_compilation.cpp.o"
   "/home/anovotarskyi/Desktop/masha_dyplom/src/mainwindow.cpp" "/home/anovotarskyi/Desktop/masha_dyplom/build/src/CMakeFiles/keepass_src.dir/mainwindow.cpp.o"
   )

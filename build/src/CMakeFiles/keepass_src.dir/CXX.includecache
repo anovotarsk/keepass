@@ -102,10 +102,62 @@ string
 vector
 -
 
+../src/ArgsParser.h
+string
+-
+vector
+-
+
+../src/UTreeWidgetItem.h
+QTreeWidgetItem
+-
+array
+-
+
+../src/mainwindow.h
+QMainWindow
+-
+QTreeWidget
+-
+QTreeWidgetItem
+-
+QIcon
+-
+iostream
+-
+kdbx.hh
+-
+kdb.hh
+-
+key.hh
+-
+ArgsParser.h
+../src/ArgsParser.h
+UTreeWidgetItem.h
+../src/UTreeWidgetItem.h
+
+/home/anovotarskyi/Desktop/masha_dyplom/build/src/keepass_src_autogen/EWIEGA46WW/moc_mainwindow.cpp
+mainwindow.h
+/home/anovotarskyi/Desktop/masha_dyplom/build/src/keepass_src_autogen/EWIEGA46WW/mainwindow.h
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
+-
+
+/home/anovotarskyi/Desktop/masha_dyplom/build/src/keepass_src_autogen/mocs_compilation.cpp
+EWIEGA46WW/moc_mainwindow.cpp
+/home/anovotarskyi/Desktop/masha_dyplom/build/src/keepass_src_autogen/EWIEGA46WW/moc_mainwindow.cpp
+
 /home/anovotarskyi/Desktop/masha_dyplom/src/ArgsParser.h
 string
 -
 vector
+-
+
+/home/anovotarskyi/Desktop/masha_dyplom/src/UTreeWidgetItem.h
+QTreeWidgetItem
+-
+array
 -
 
 /home/anovotarskyi/Desktop/masha_dyplom/src/mainwindow.cpp
@@ -121,6 +173,8 @@ QTreeWidget
 -
 QTreeWidgetItem
 -
+QIcon
+-
 iostream
 -
 kdbx.hh
@@ -131,6 +185,8 @@ key.hh
 -
 ArgsParser.h
 /home/anovotarskyi/Desktop/masha_dyplom/src/ArgsParser.h
+UTreeWidgetItem.h
+/home/anovotarskyi/Desktop/masha_dyplom/src/UTreeWidgetItem.h
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant
 qvariant.h
@@ -874,6 +930,10 @@ QtCore/qpoint.h
 QtCore/qglobal.h
 -
 
+/usr/include/x86_64-linux-gnu/qt5/QtGui/QIcon
+qicon.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qicon.h
+
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qbrush.h
 QtGui/qtguiglobal.h
 -
@@ -1242,13 +1302,9 @@ qmenu.h
 qmenubar.h
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenubar.h
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStatusBar
-qstatusbar.h
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstatusbar.h
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QTableWidget
-qtablewidget.h
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtablewidget.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QSplitter
+qsplitter.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsplitter.h
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QToolBar
 qtoolbar.h
@@ -1460,10 +1516,12 @@ QtWidgets/qtwidgetsglobal.h
 QtWidgets/qabstractslider.h
 -
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstatusbar.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsplitter.h
 QtWidgets/qtwidgetsglobal.h
 -
-QtWidgets/qwidget.h
+QtWidgets/qframe.h
+-
+QtWidgets/qsizepolicy.h
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h
@@ -1516,22 +1574,6 @@ QtCore/qabstractitemmodel.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
--
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h
-QtWidgets/qtwidgetsglobal.h
--
-QtWidgets/qabstractitemview.h
--
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtablewidget.h
-QtWidgets/qtwidgetsglobal.h
--
-QtWidgets/qtableview.h
--
-QtCore/qvariant.h
--
-QtCore/qvector.h
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h
@@ -1631,9 +1673,7 @@ QtWidgets/QMenu
 -
 QtWidgets/QMenuBar
 -
-QtWidgets/QStatusBar
--
-QtWidgets/QTableWidget
+QtWidgets/QSplitter
 -
 QtWidgets/QToolBar
 -

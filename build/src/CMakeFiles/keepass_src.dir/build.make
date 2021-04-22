@@ -100,11 +100,25 @@ src/CMakeFiles/keepass_src.dir/mainwindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/keepass_src.dir/mainwindow.cpp.s"
 	cd /home/anovotarskyi/Desktop/masha_dyplom/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/anovotarskyi/Desktop/masha_dyplom/src/mainwindow.cpp -o CMakeFiles/keepass_src.dir/mainwindow.cpp.s
 
+src/CMakeFiles/keepass_src.dir/UTreeWidgetItem.cpp.o: src/CMakeFiles/keepass_src.dir/flags.make
+src/CMakeFiles/keepass_src.dir/UTreeWidgetItem.cpp.o: ../src/UTreeWidgetItem.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/anovotarskyi/Desktop/masha_dyplom/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/keepass_src.dir/UTreeWidgetItem.cpp.o"
+	cd /home/anovotarskyi/Desktop/masha_dyplom/build/src && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/keepass_src.dir/UTreeWidgetItem.cpp.o -c /home/anovotarskyi/Desktop/masha_dyplom/src/UTreeWidgetItem.cpp
+
+src/CMakeFiles/keepass_src.dir/UTreeWidgetItem.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/keepass_src.dir/UTreeWidgetItem.cpp.i"
+	cd /home/anovotarskyi/Desktop/masha_dyplom/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/anovotarskyi/Desktop/masha_dyplom/src/UTreeWidgetItem.cpp > CMakeFiles/keepass_src.dir/UTreeWidgetItem.cpp.i
+
+src/CMakeFiles/keepass_src.dir/UTreeWidgetItem.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/keepass_src.dir/UTreeWidgetItem.cpp.s"
+	cd /home/anovotarskyi/Desktop/masha_dyplom/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/anovotarskyi/Desktop/masha_dyplom/src/UTreeWidgetItem.cpp -o CMakeFiles/keepass_src.dir/UTreeWidgetItem.cpp.s
+
 # Object files for target keepass_src
 keepass_src_OBJECTS = \
 "CMakeFiles/keepass_src.dir/keepass_src_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/keepass_src.dir/ArgsParser.cpp.o" \
-"CMakeFiles/keepass_src.dir/mainwindow.cpp.o"
+"CMakeFiles/keepass_src.dir/mainwindow.cpp.o" \
+"CMakeFiles/keepass_src.dir/UTreeWidgetItem.cpp.o"
 
 # External object files for target keepass_src
 keepass_src_EXTERNAL_OBJECTS =
@@ -112,9 +126,10 @@ keepass_src_EXTERNAL_OBJECTS =
 src/libkeepass_src.a: src/CMakeFiles/keepass_src.dir/keepass_src_autogen/mocs_compilation.cpp.o
 src/libkeepass_src.a: src/CMakeFiles/keepass_src.dir/ArgsParser.cpp.o
 src/libkeepass_src.a: src/CMakeFiles/keepass_src.dir/mainwindow.cpp.o
+src/libkeepass_src.a: src/CMakeFiles/keepass_src.dir/UTreeWidgetItem.cpp.o
 src/libkeepass_src.a: src/CMakeFiles/keepass_src.dir/build.make
 src/libkeepass_src.a: src/CMakeFiles/keepass_src.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/anovotarskyi/Desktop/masha_dyplom/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libkeepass_src.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/anovotarskyi/Desktop/masha_dyplom/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX static library libkeepass_src.a"
 	cd /home/anovotarskyi/Desktop/masha_dyplom/build/src && $(CMAKE_COMMAND) -P CMakeFiles/keepass_src.dir/cmake_clean_target.cmake
 	cd /home/anovotarskyi/Desktop/masha_dyplom/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/keepass_src.dir/link.txt --verbose=$(VERBOSE)
 

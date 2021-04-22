@@ -14,6 +14,7 @@ CMakeFiles/keepass.dir/main.cpp.o
  ../libkeepass/src/security.hh
  ../libkeepass/src/util.hh
  ../src/ArgsParser.h
+ ../src/UTreeWidgetItem.h
  ../src/mainwindow.h
  /home/anovotarskyi/Desktop/masha_dyplom/main.cpp
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h
@@ -93,6 +94,7 @@ CMakeFiles/keepass.dir/main.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qvarlengtharray.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qvector.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qversiontagging.h
+ /usr/include/x86_64-linux-gnu/qt5/QtGui/QIcon
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qbrush.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qcolor.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qcursor.h

@@ -108,12 +108,20 @@ string
 vector
 -
 
+../src/UTreeWidgetItem.h
+QTreeWidgetItem
+-
+array
+-
+
 ../src/mainwindow.h
 QMainWindow
 -
 QTreeWidget
 -
 QTreeWidgetItem
+-
+QIcon
 -
 iostream
 -
@@ -125,6 +133,8 @@ key.hh
 -
 ArgsParser.h
 ../src/ArgsParser.h
+UTreeWidgetItem.h
+../src/UTreeWidgetItem.h
 
 /home/anovotarskyi/Desktop/masha_dyplom/main.cpp
 mainwindow.h
@@ -877,6 +887,10 @@ QtCore/qpoint.h
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qversiontagging.h
 QtCore/qglobal.h
 -
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/QIcon
+qicon.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qicon.h
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qbrush.h
 QtGui/qtguiglobal.h

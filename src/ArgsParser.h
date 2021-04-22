@@ -18,6 +18,7 @@ public:
     ArgsParser( int argc, char* argv[] );
 
     ArgsStatus getStatus( );
+    std::string getProgramPath( );
     std::string getFile( );
     std::string getKey( );
     std::pair< std::string, std::string > getFileAndKey( );

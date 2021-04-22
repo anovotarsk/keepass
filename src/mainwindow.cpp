@@ -44,8 +44,19 @@ MainWindow::MainWindow( int argc, char* argv[], QWidget *parent)
         }
     }
 
-    ui->tableWidget->setColumnCount( 5 );
-    ui->tableWidget->setRowCount( 5 );
+    ui->passList->setColumnCount( 5 );
+    ui->passList->setStyleSheet("*::item{"
+                        "   border: 1px solid silver;"
+                        "}"
+                        "*::item:selected{"
+                        "    background: palette(Highlight);"
+                        "}");
+    ui->passList->setHeaderLabels( { "Title", "Usar Name", "Password", "URL", "Notes" } );
+    ui->passList->setRootIsDecorated( false );
+
+    ui->splitter->setSizes( { 250, 600 } );
+
+    ui->treeWidget->clear( );
     fillTreeViev( );
 }
 
@@ -54,56 +65,105 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void  MainWindow::fillTreeViev( )
+void MainWindow::fillTreeViev( UTreeWidgetItem *parent, const std::vector<std::shared_ptr<Group>>* groups )
 {
-    QTreeWidgetItem *top = new QTreeWidgetItem( ui->treeWidget );
-
-    ui->treeWidget->addTopLevelItem( top );
-    top->setText( 0,  QString::fromStdString( dt->root( )->name( ) ) );
-
-    auto& groops =  dt->root( )->Groups( );
-
-    for ( std::size_t i = 0; i < groops.size( ); i++ )
+    if ( parent == nullptr )
     {
-        QTreeWidgetItem *item = new QTreeWidgetItem( top );
-        item->setText( 0, QString::fromStdString( groops[ i ]->name( ) ) );
+        parent = new UTreeWidgetItem( ui->treeWidget );
+
+        ui->treeWidget->addTopLevelItem( parent );
+        parent->setText( 0,  QString::fromStdString( dt->root( )->name( ) ) );
+        parent->setIcon( 0,  QIcon( QString::fromStdString( args.getProgramPath( )
+                                                         + "resources/icons/"
+                                                         + std::to_string( dt->root( )->icon( ) )
+                                                         + ".jpg" ) ) );
+        parent->setUuid( dt->root( )->uuid( ) );
+
+        fillTreeViev( parent );
+    }
+    else
+    {
+        if (groups == nullptr)
+        {
+            groups =  &dt->root( )->Groups( );
+        }
+        for ( std::size_t i = 0; i < groups->size( ); i++ )
+        {
+            UTreeWidgetItem *item = new UTreeWidgetItem( parent );
+            item->setText( 0, QString::fromStdString( (*groups)[ i ]->name( ) ) );
+            item->setIcon( 0,  QIcon( QString::fromStdString( args.getProgramPath( )
+                                                              + "resources/icons/"
+                                                              + std::to_string( (*groups)[ i ]->icon( ) )
+                                                              + ".jpg" ) ) );
+            item->setUuid( (*groups)[ i ]->uuid( ) );
+
+            fillTreeViev( item, &(*groups)[ i ]->Groups( ) );
+        }
     }
 }
 
 
 void MainWindow::on_treeWidget_itemClicked(QTreeWidgetItem *item, int column)
 {
-    ui->tableWidget->clear();
-    std::list< std::string > levels;
+    ui->passList->clear( );
 
-    auto it = item;
-    levels.push_front( item->text( column ).toStdString( ) );
-    while ( it->parent( ) != nullptr )
+    std::vector<std::shared_ptr<Entry>> entries;
+
+    if ( item->parent( ) == nullptr )
     {
-        it = it->parent( );
-        levels.push_front( it->text( column ).toStdString( ) );
+        entries = dt->root( )->Entries( );
+    }
+    else
+    {
+        entries = get_entries_by_uuid( static_cast<UTreeWidgetItem* >( item )->getUuid( ) );
     }
 
-    if ( levels.size( ) == 1 )
+    for ( auto& entry : entries )
     {
-        for ( size_t i = 0; i <  dt->root( )->Entries().size( ); i++ )
-        {
-            QTableWidgetItem *title = new QTableWidgetItem( );
-            title->setText( QString::fromStdString( dt->root( )->Entries()[i]->title( ) ) );
-            QTableWidgetItem *userName = new QTableWidgetItem( );
-            userName->setText( QString::fromStdString( dt->root( )->Entries()[i]->username( ) ) );
-            QTableWidgetItem *password = new QTableWidgetItem( );
-            password->setText( QString::fromStdString( dt->root( )->Entries()[i]->password( ) ) );
-            QTableWidgetItem *url = new QTableWidgetItem( );
-            url->setText( QString::fromStdString( dt->root( )->Entries()[i]->url( ) ) );
-            QTableWidgetItem *notes = new QTableWidgetItem( );
-            notes->setText( QString::fromStdString( dt->root( )->Entries()[i]->notes( ) ) );
+        UTreeWidgetItem *item = new UTreeWidgetItem( ui->passList );
+        item->setText( 0, QString::fromStdString( entry->title( ) ) );
+        item->setText( 1, QString::fromStdString( entry->username( ) ) );
+        item->setText( 2, QString::fromStdString( entry->password( ) ) );
+        item->setText( 3, QString::fromStdString( entry->url( ) ) );
+        item->setText( 4, QString::fromStdString( entry->notes( ) ) );
+        item->setIcon( 0,  QIcon( QString::fromStdString( args.getProgramPath( )
+                                                          + "resources/icons/"
+                                                          + std::to_string( entry->icon( ) )
+                                                          + ".jpg" ) ) );
+        item->setUuid( entry->uuid( ) );
+    }
+}
 
-            ui->tableWidget->setItem( i, 0, title );
-            ui->tableWidget->setItem( i, 1, userName );
-            ui->tableWidget->setItem( i, 2, password );
-            ui->tableWidget->setItem( i, 3, url );
-            ui->tableWidget->setItem( i, 4, notes );
+const std::vector<std::shared_ptr<Entry>>
+MainWindow::get_entries_by_uuid( std::array<uint8_t, 16>& uuid,
+                     const std::vector<std::shared_ptr<Group>>& Groups )
+{
+    for ( size_t i = 0; i < Groups.size( ); i++ )
+    {
+        if ( uuid == Groups[ i ]->uuid( ) )
+        {
+            return Groups[ i ]->Entries( );
+        }
+        else
+        {
+            auto& entries = get_entries_by_uuid( uuid, Groups[ i ]->Groups( ) );
+            if ( entries.size( ) != 0 )
+            {
+                return entries;
+            }
         }
     }
+
+    return std::vector<std::shared_ptr<Entry>> ();
+}
+
+const std::vector<std::shared_ptr<Entry>>
+MainWindow::get_entries_by_uuid( std::array<uint8_t, 16>& uuid )
+{
+    if ( uuid == dt->root( )->uuid( ) )
+    {
+        return dt->root( )->Entries( );
+    }
+
+    return get_entries_by_uuid( uuid, dt->root( )->Groups( ) );
 }

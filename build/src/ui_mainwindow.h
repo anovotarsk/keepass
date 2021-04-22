@@ -17,8 +17,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
-#include <QtWidgets/QStatusBar>
-#include <QtWidgets/QTableWidget>
+#include <QtWidgets/QSplitter>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QTreeWidget>
 #include <QtWidgets/QWidget>
@@ -30,8 +29,9 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QHBoxLayout *horizontalLayout;
+    QSplitter *splitter;
     QTreeWidget *treeWidget;
-    QTableWidget *tableWidget;
+    QTreeWidget *passList;
     QMenuBar *menubar;
     QMenu *menuFile;
     QMenu *menuGroup;
@@ -40,7 +40,6 @@ public:
     QMenu *menuViev;
     QMenu *menuTools;
     QMenu *menuHelp;
-    QStatusBar *statusbar;
     QToolBar *toolBar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -52,18 +51,24 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         horizontalLayout = new QHBoxLayout(centralwidget);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        treeWidget = new QTreeWidget(centralwidget);
+        splitter = new QSplitter(centralwidget);
+        splitter->setObjectName(QString::fromUtf8("splitter"));
+        splitter->setOrientation(Qt::Horizontal);
+        treeWidget = new QTreeWidget(splitter);
         QTreeWidgetItem *__qtreewidgetitem = new QTreeWidgetItem();
         __qtreewidgetitem->setText(0, QString::fromUtf8("1"));
         treeWidget->setHeaderItem(__qtreewidgetitem);
         treeWidget->setObjectName(QString::fromUtf8("treeWidget"));
+        treeWidget->setEnabled(true);
+        splitter->addWidget(treeWidget);
+        passList = new QTreeWidget(splitter);
+        QTreeWidgetItem *__qtreewidgetitem1 = new QTreeWidgetItem();
+        __qtreewidgetitem1->setText(0, QString::fromUtf8("1"));
+        passList->setHeaderItem(__qtreewidgetitem1);
+        passList->setObjectName(QString::fromUtf8("passList"));
+        splitter->addWidget(passList);
 
-        horizontalLayout->addWidget(treeWidget);
-
-        tableWidget = new QTableWidget(centralwidget);
-        tableWidget->setObjectName(QString::fromUtf8("tableWidget"));
-
-        horizontalLayout->addWidget(tableWidget);
+        horizontalLayout->addWidget(splitter);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -84,9 +89,6 @@ public:
         menuHelp = new QMenu(menubar);
         menuHelp->setObjectName(QString::fromUtf8("menuHelp"));
         MainWindow->setMenuBar(menubar);
-        statusbar = new QStatusBar(MainWindow);
-        statusbar->setObjectName(QString::fromUtf8("statusbar"));
-        MainWindow->setStatusBar(statusbar);
         toolBar = new QToolBar(MainWindow);
         toolBar->setObjectName(QString::fromUtf8("toolBar"));
         MainWindow->addToolBar(Qt::TopToolBarArea, toolBar);

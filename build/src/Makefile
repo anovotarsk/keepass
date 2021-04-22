@@ -167,6 +167,33 @@ ArgsParser.cpp.s:
 	cd /home/anovotarskyi/Desktop/masha_dyplom/build && $(MAKE) -f src/CMakeFiles/keepass_src.dir/build.make src/CMakeFiles/keepass_src.dir/ArgsParser.cpp.s
 .PHONY : ArgsParser.cpp.s
 
+UTreeWidgetItem.o: UTreeWidgetItem.cpp.o
+
+.PHONY : UTreeWidgetItem.o
+
+# target to build an object file
+UTreeWidgetItem.cpp.o:
+	cd /home/anovotarskyi/Desktop/masha_dyplom/build && $(MAKE) -f src/CMakeFiles/keepass_src.dir/build.make src/CMakeFiles/keepass_src.dir/UTreeWidgetItem.cpp.o
+.PHONY : UTreeWidgetItem.cpp.o
+
+UTreeWidgetItem.i: UTreeWidgetItem.cpp.i
+
+.PHONY : UTreeWidgetItem.i
+
+# target to preprocess a source file
+UTreeWidgetItem.cpp.i:
+	cd /home/anovotarskyi/Desktop/masha_dyplom/build && $(MAKE) -f src/CMakeFiles/keepass_src.dir/build.make src/CMakeFiles/keepass_src.dir/UTreeWidgetItem.cpp.i
+.PHONY : UTreeWidgetItem.cpp.i
+
+UTreeWidgetItem.s: UTreeWidgetItem.cpp.s
+
+.PHONY : UTreeWidgetItem.s
+
+# target to generate assembly for a file
+UTreeWidgetItem.cpp.s:
+	cd /home/anovotarskyi/Desktop/masha_dyplom/build && $(MAKE) -f src/CMakeFiles/keepass_src.dir/build.make src/CMakeFiles/keepass_src.dir/UTreeWidgetItem.cpp.s
+.PHONY : UTreeWidgetItem.cpp.s
+
 keepass_src_autogen/mocs_compilation.o: keepass_src_autogen/mocs_compilation.cpp.o
 
 .PHONY : keepass_src_autogen/mocs_compilation.o
@@ -234,6 +261,9 @@ help:
 	@echo "... ArgsParser.o"
 	@echo "... ArgsParser.i"
 	@echo "... ArgsParser.s"
+	@echo "... UTreeWidgetItem.o"
+	@echo "... UTreeWidgetItem.i"
+	@echo "... UTreeWidgetItem.s"
 	@echo "... keepass_src_autogen/mocs_compilation.o"
 	@echo "... keepass_src_autogen/mocs_compilation.i"
 	@echo "... keepass_src_autogen/mocs_compilation.s"

@@ -10,6 +10,8 @@ add_library(keepass_src
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
+    UTreeWidgetItem.cpp
+    UTreeWidgetItem.h
 )
 
 qt5_wrap_ui( keepass_src mainwindow.ui)

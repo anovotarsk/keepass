@@ -107,6 +107,12 @@
 		<Unit filename="/home/anovotarskyi/Desktop/masha_dyplom/src/ArgsParser.h">
 			<Option target="keepass_src"/>
 		</Unit>
+		<Unit filename="/home/anovotarskyi/Desktop/masha_dyplom/src/UTreeWidgetItem.cpp">
+			<Option target="keepass_src"/>
+		</Unit>
+		<Unit filename="/home/anovotarskyi/Desktop/masha_dyplom/src/UTreeWidgetItem.h">
+			<Option target="keepass_src"/>
+		</Unit>
 		<Unit filename="/home/anovotarskyi/Desktop/masha_dyplom/src/mainwindow.cpp">
 			<Option target="keepass_src"/>
 		</Unit>

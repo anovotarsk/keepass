@@ -13,6 +13,7 @@ CMakeFiles/keepass.dir/main.cpp.o: ../libkeepass/src/key.hh
 CMakeFiles/keepass.dir/main.cpp.o: ../libkeepass/src/security.hh
 CMakeFiles/keepass.dir/main.cpp.o: ../libkeepass/src/util.hh
 CMakeFiles/keepass.dir/main.cpp.o: ../src/ArgsParser.h
+CMakeFiles/keepass.dir/main.cpp.o: ../src/UTreeWidgetItem.h
 CMakeFiles/keepass.dir/main.cpp.o: ../src/mainwindow.h
 CMakeFiles/keepass.dir/main.cpp.o: ../main.cpp
 CMakeFiles/keepass.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h
@@ -92,6 +93,7 @@ CMakeFiles/keepass.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qvar
 CMakeFiles/keepass.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qvarlengtharray.h
 CMakeFiles/keepass.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qvector.h
 CMakeFiles/keepass.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qversiontagging.h
+CMakeFiles/keepass.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/QIcon
 CMakeFiles/keepass.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qbrush.h
 CMakeFiles/keepass.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qcolor.h
 CMakeFiles/keepass.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtGui/qcursor.h

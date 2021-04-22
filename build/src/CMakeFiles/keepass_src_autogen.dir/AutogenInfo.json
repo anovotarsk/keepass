@@ -13,6 +13,11 @@
 			"EWIEGA46WW/moc_ArgsParser.cpp"
 		],
 		[
+			"/home/anovotarskyi/Desktop/masha_dyplom/src/UTreeWidgetItem.h",
+			"MU",
+			"EWIEGA46WW/moc_UTreeWidgetItem.cpp"
+		],
+		[
 			"/home/anovotarskyi/Desktop/masha_dyplom/src/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp"
@@ -71,6 +76,10 @@
 	"SOURCES" : 
 	[
 		[ "/home/anovotarskyi/Desktop/masha_dyplom/src/ArgsParser.cpp", "MU" ],
+		[
+			"/home/anovotarskyi/Desktop/masha_dyplom/src/UTreeWidgetItem.cpp",
+			"MU"
+		],
 		[ "/home/anovotarskyi/Desktop/masha_dyplom/src/mainwindow.cpp", "MU" ]
 	],
 	"UIC_OPTIONS" : [],

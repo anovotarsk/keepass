@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QTreeWidget>
 #include <QTreeWidgetItem>
+#include <QIcon>
 
 #include <iostream>
 
@@ -12,6 +13,7 @@
 #include <key.hh>
 
 #include "ArgsParser.h"
+#include "UTreeWidgetItem.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -36,10 +38,18 @@ public:
     MainWindow( int argc, char* argv[], QWidget *parent = nullptr);
     ~MainWindow( );
 
-    void fillTreeViev( );
+    void fillTreeViev( UTreeWidgetItem *parent = nullptr,
+                       const std::vector<std::shared_ptr<Group>>* groups = nullptr );
 
 private slots:
-    void on_treeWidget_itemClicked(QTreeWidgetItem *item, int column);
+    void on_treeWidget_itemClicked( QTreeWidgetItem *item, int column );
+
+private:
+    const std::vector<std::shared_ptr<Entry>> get_entries_by_uuid( std::array<uint8_t, 16>& uuid );
+    const std::vector<std::shared_ptr<Entry>> get_entries_by_uuid(
+            std::array<uint8_t, 16>& uuid,
+            const std::vector<std::shared_ptr<Group>>& Groups
+            );
 
 private:
     Ui::MainWindow *ui;
@@ -47,5 +57,7 @@ private:
 
     ArgsParser args;
     FileType type;
+
+    std::array<uint8_t, 16> current_uuid;
 };
 #endif // MAINWINDOW_H

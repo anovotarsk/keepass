@@ -29,6 +29,13 @@ ArgsStatus ArgsParser::getStatus( )
     return m_status;
 }
 
+std::string ArgsParser::getProgramPath( )
+{
+    std::string path = m_argv[ 0 ];
+    path.erase( path.length( ) - 7 );
+    return path ;
+}
+
 std::string ArgsParser::getFile( )
 {
     return m_argv[ 1 ] ;

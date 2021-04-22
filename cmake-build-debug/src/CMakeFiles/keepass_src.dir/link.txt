@@ -1,2 +1,0 @@
-/usr/bin/ar qc libkeepass_src.a CMakeFiles/keepass_src.dir/keepass_src_autogen/mocs_compilation.cpp.o CMakeFiles/keepass_src.dir/mainwindow.cpp.o
-/usr/bin/ranlib libkeepass_src.a
