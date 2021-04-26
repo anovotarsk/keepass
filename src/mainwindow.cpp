@@ -1,11 +1,12 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-MainWindow::MainWindow( int argc, char* argv[], QWidget *parent)
+MainWindow::MainWindow( int argc, char* argv[], QClipboard *clipboard, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
     , args( { argc, argv } )
     , type( FileType::NoFile )
+    , m_clipboard( clipboard )
 {
     ui->setupUi(this);
 
@@ -29,7 +30,6 @@ MainWindow::MainWindow( int argc, char* argv[], QWidget *parent)
                     type = ErrorType;
                 }
             }
-
         }
 
         if ( type == Kdbx )
@@ -58,6 +58,8 @@ MainWindow::MainWindow( int argc, char* argv[], QWidget *parent)
 
     ui->treeWidget->clear( );
     fillTreeViev( );
+
+    m_entry_form = new EntryForm( this );
 }
 
 MainWindow::~MainWindow()
@@ -65,7 +67,8 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::fillTreeViev( UTreeWidgetItem *parent, const std::vector<std::shared_ptr<Group>>* groups )
+void MainWindow::fillTreeViev( UTreeWidgetItem *parent,
+                               const std::vector<std::shared_ptr<Group>>* groups )
 {
     if ( parent == nullptr )
     {
@@ -77,7 +80,7 @@ void MainWindow::fillTreeViev( UTreeWidgetItem *parent, const std::vector<std::s
                                                          + "resources/icons/"
                                                          + std::to_string( dt->root( )->icon( ) )
                                                          + ".jpg" ) ) );
-        parent->setUuid( dt->root( )->uuid( ) );
+        parent->setGroup( dt->root( ) );
 
         fillTreeViev( parent );
     }
@@ -95,7 +98,7 @@ void MainWindow::fillTreeViev( UTreeWidgetItem *parent, const std::vector<std::s
                                                               + "resources/icons/"
                                                               + std::to_string( (*groups)[ i ]->icon( ) )
                                                               + ".jpg" ) ) );
-            item->setUuid( (*groups)[ i ]->uuid( ) );
+            item->setGroup( (*groups)[ i ] );
 
             fillTreeViev( item, &(*groups)[ i ]->Groups( ) );
         }
@@ -115,7 +118,7 @@ void MainWindow::on_treeWidget_itemClicked(QTreeWidgetItem *item, int column)
     }
     else
     {
-        entries = get_entries_by_uuid( static_cast<UTreeWidgetItem* >( item )->getUuid( ) );
+        entries = static_cast<UTreeWidgetItem* >( item )->getGroup( )->Entries( );
     }
 
     for ( auto& entry : entries )
@@ -130,40 +133,19 @@ void MainWindow::on_treeWidget_itemClicked(QTreeWidgetItem *item, int column)
                                                           + "resources/icons/"
                                                           + std::to_string( entry->icon( ) )
                                                           + ".jpg" ) ) );
-        item->setUuid( entry->uuid( ) );
+        item->setEntry( entry );
     }
 }
 
-const std::vector<std::shared_ptr<Entry>>
-MainWindow::get_entries_by_uuid( std::array<uint8_t, 16>& uuid,
-                     const std::vector<std::shared_ptr<Group>>& Groups )
+void MainWindow::on_passList_itemDoubleClicked(QTreeWidgetItem *item, int column)
 {
-    for ( size_t i = 0; i < Groups.size( ); i++ )
+    if ( column == 0 )
     {
-        if ( uuid == Groups[ i ]->uuid( ) )
-        {
-            return Groups[ i ]->Entries( );
-        }
-        else
-        {
-            auto& entries = get_entries_by_uuid( uuid, Groups[ i ]->Groups( ) );
-            if ( entries.size( ) != 0 )
-            {
-                return entries;
-            }
-        }
+        m_entry_form->setEntry( static_cast<UTreeWidgetItem*>( item )->getEntry( ) );
+        m_entry_form->exec( );
     }
-
-    return std::vector<std::shared_ptr<Entry>> ();
-}
-
-const std::vector<std::shared_ptr<Entry>>
-MainWindow::get_entries_by_uuid( std::array<uint8_t, 16>& uuid )
-{
-    if ( uuid == dt->root( )->uuid( ) )
+    else
     {
-        return dt->root( )->Entries( );
+        m_clipboard->setText( item->text( column ) );
     }
-
-    return get_entries_by_uuid( uuid, dt->root( )->Groups( ) );
 }

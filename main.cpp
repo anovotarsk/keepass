@@ -10,8 +10,8 @@ using namespace keepass;
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    MainWindow w( argc, argv );
+    QApplication a(argc, argv );
+    MainWindow w( argc, argv, a.clipboard( ) );
     w.show();
     return a.exec();
 }

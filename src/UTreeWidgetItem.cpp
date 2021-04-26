@@ -10,12 +10,22 @@ UTreeWidgetItem::UTreeWidgetItem( QTreeWidgetItem *parent )
 {
 }
 
-void UTreeWidgetItem::setUuid( const std::array<uint8_t, 16>& uuid )
+void UTreeWidgetItem::setEntry( std::shared_ptr<Entry> entry )
 {
-    m_uuid = uuid;
+    m_entry = entry;
 }
 
-std::array<uint8_t, 16>& UTreeWidgetItem::getUuid( )
+std::shared_ptr<Entry> UTreeWidgetItem::getEntry( )
 {
-    return m_uuid;
+    return m_entry;
+}
+
+void UTreeWidgetItem::setGroup( std::shared_ptr<Group> group )
+{
+    m_group = group;
+}
+
+std::shared_ptr<Group> UTreeWidgetItem::getGroup( )
+{
+    return m_group;
 }

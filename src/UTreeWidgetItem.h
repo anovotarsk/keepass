@@ -3,6 +3,11 @@
 #include <QTreeWidgetItem>
 
 #include <array>
+#include <memory>
+
+#include <group.hh>
+
+using namespace keepass;
 
 class UTreeWidgetItem : public QTreeWidgetItem
 {
@@ -10,9 +15,13 @@ public:
     UTreeWidgetItem( QTreeWidget *parent );
     UTreeWidgetItem( QTreeWidgetItem *parent );
 
-    void setUuid( const std::array<uint8_t, 16>& uuid );
-    std::array<uint8_t, 16>& getUuid( );
+    void setEntry( std::shared_ptr<Entry> entry );
+    std::shared_ptr<Entry> getEntry( );
+
+    void setGroup( std::shared_ptr<Group> group );
+    std::shared_ptr<Group> getGroup( );
 
 private:
-    std::array<uint8_t, 16> m_uuid;
+    std::shared_ptr<Group> m_group;
+    std::shared_ptr<Entry> m_entry;
 };

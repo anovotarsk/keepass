@@ -5,6 +5,7 @@
 #include <QTreeWidget>
 #include <QTreeWidgetItem>
 #include <QIcon>
+#include <QClipboard>
 
 #include <iostream>
 
@@ -14,6 +15,7 @@
 
 #include "ArgsParser.h"
 #include "UTreeWidgetItem.h"
+#include "EntryForm.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -30,26 +32,34 @@ enum FileType
     ErrorType
 };
 
+typedef struct EntryInfo
+{
+    std::string title;
+    std::string user_name;
+    std::string password;
+    std::string url;
+    std::string notes;
+    int icon;
+
+} EntryInfo;
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow( int argc, char* argv[], QWidget *parent = nullptr);
+    MainWindow( int argc, char* argv[], QClipboard *clipboard, QWidget *parent = nullptr);
     ~MainWindow( );
 
     void fillTreeViev( UTreeWidgetItem *parent = nullptr,
                        const std::vector<std::shared_ptr<Group>>* groups = nullptr );
 
 private slots:
+    void on_passList_itemDoubleClicked(QTreeWidgetItem *item, int column);
     void on_treeWidget_itemClicked( QTreeWidgetItem *item, int column );
 
 private:
-    const std::vector<std::shared_ptr<Entry>> get_entries_by_uuid( std::array<uint8_t, 16>& uuid );
-    const std::vector<std::shared_ptr<Entry>> get_entries_by_uuid(
-            std::array<uint8_t, 16>& uuid,
-            const std::vector<std::shared_ptr<Group>>& Groups
-            );
+
 
 private:
     Ui::MainWindow *ui;
@@ -59,5 +69,11 @@ private:
     FileType type;
 
     std::array<uint8_t, 16> current_uuid;
+
+    QClipboard *m_clipboard;
+
+    EntryForm *m_entry_form;
+
+    friend class EntryForm;
 };
 #endif // MAINWINDOW_H
