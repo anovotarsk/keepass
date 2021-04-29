@@ -4,12 +4,14 @@
 #include <iostream>
 
 #include "mainwindow.h"
+#include "IconChooser.h"
 
 EntryForm::EntryForm( MainWindow *main,
                       QWidget *parent) :
     QDialog(parent),
     ui(new Ui::EntryForm),
-    main_window( main )
+    main_window( main ),
+    icon_chooser( new IconChooser( this ) )
 {
     ui->setupUi(this);
 }
@@ -42,4 +44,9 @@ int EntryForm::exec( )
                                                       + ".jpg" ) ) );
 
     return QDialog::exec( );
+}
+
+void EntryForm::on_icon_clicked( )
+{
+    icon_chooser->exec();
 }

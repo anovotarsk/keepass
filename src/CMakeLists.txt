@@ -15,10 +15,14 @@ add_library(keepass_src
     EntryForm.ui
     EntryForm.h
     EntryForm.cpp
+    IconChooser.cpp
+    IconChooser.h
+    IconChooser.ui
 )
 
 qt5_wrap_ui( keepass_src mainwindow.ui )
 qt5_wrap_ui( keepass_src EntryForm.ui )
+qt5_wrap_ui( keepass_src IconChooser.ui )
 
 #target_link_libraries(keepass_src Qt5:Widgets)
 target_link_libraries(keepass_src PRIVATE Qt5::Widgets keepasslib)

@@ -3,12 +3,15 @@
 
 #include <QDialog>
 #include <QMainWindow>
+#include <QTableWidget>
+#include <QTableWidgetItem>
 
 #include <memory>
 
 #include <entry.hh>
 
 class MainWindow;
+class IconChooser;
 
 using namespace keepass;
 
@@ -30,11 +33,18 @@ public:
 
     int exec( ) override;
 
+private slots:
+    void on_icon_clicked( );
+
 private:
     Ui::EntryForm *ui;
     MainWindow *main_window;
+    IconChooser *icon_chooser;
 
     std::shared_ptr<Entry> m_entry;
+
+    friend class IconChooser;
+    friend class IconContainer;
 };
 
 #endif // ENTRYFORM_H

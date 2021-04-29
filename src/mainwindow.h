@@ -75,5 +75,6 @@ private:
     EntryForm *m_entry_form;
 
     friend class EntryForm;
+    friend class IconChooser;
 };
 #endif // MAINWINDOW_H
