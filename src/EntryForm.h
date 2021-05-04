@@ -7,8 +7,11 @@
 #include <QTableWidgetItem>
 
 #include <memory>
+#include <algorithm>
 
 #include <entry.hh>
+
+#include <Form.h>
 
 class MainWindow;
 class IconChooser;
@@ -19,7 +22,7 @@ namespace Ui {
     class EntryForm;
 }
 
-class EntryForm : public QDialog
+class EntryForm : public QDialog, private Form
 {
     Q_OBJECT
 
@@ -34,14 +37,20 @@ public:
     int exec( ) override;
 
 private slots:
+    void on_del_clicked();
+
+private slots:
+    void on_save_clicked();
+
+private slots:
     void on_icon_clicked( );
 
 private:
     Ui::EntryForm *ui;
-    MainWindow *main_window;
     IconChooser *icon_chooser;
 
     std::shared_ptr<Entry> m_entry;
+    //Entry *m_entry;
 
     friend class IconChooser;
     friend class IconContainer;

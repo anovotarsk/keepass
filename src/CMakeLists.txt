@@ -18,6 +18,11 @@ add_library(keepass_src
     IconChooser.cpp
     IconChooser.h
     IconChooser.ui
+    GroupForm.cpp
+    GroupForm.h
+    GroupForm.ui
+    Form.h
+    Form.cpp
 )
 
 qt5_wrap_ui( keepass_src mainwindow.ui )

@@ -1,10 +1,12 @@
-#include "mainwindow.h"
 #include <QApplication>
+
+#include <iostream>
 
 #include "kdbx.hh"
 #include "key.hh"
+
 #include "ArgsParser.h"
-#include <iostream>
+#include "mainwindow.h"
 
 using namespace keepass;
 

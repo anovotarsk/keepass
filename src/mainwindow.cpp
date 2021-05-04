@@ -65,6 +65,7 @@ MainWindow::MainWindow( int argc, char* argv[], QClipboard *clipboard, QWidget *
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete m_entry_form;
 }
 
 void MainWindow::fillTreeViev( UTreeWidgetItem *parent,
@@ -135,14 +136,25 @@ void MainWindow::on_treeWidget_itemClicked(QTreeWidgetItem *item, int column)
                                                           + ".jpg" ) ) );
         item->setEntry( entry );
     }
+
 }
 
 void MainWindow::on_passList_itemDoubleClicked(QTreeWidgetItem *item, int column)
 {
     if ( column == 0 )
     {
-        m_entry_form->setEntry( static_cast<UTreeWidgetItem*>( item )->getEntry( ) );
+        auto entry = static_cast<UTreeWidgetItem*>( item )->getEntry( );
+        m_entry_form->setEntry( entry );
         m_entry_form->exec( );
+        item->setText( 0, QString::fromStdString( entry->title( ) ) );
+        item->setText( 1, QString::fromStdString( entry->username( ) ) );
+        item->setText( 2, QString::fromStdString( entry->password( ) ) );
+        item->setText( 3, QString::fromStdString( entry->url( ) ) );
+        item->setText( 4, QString::fromStdString( entry->notes( ) ) );
+        item->setIcon( 0,  QIcon( QString::fromStdString( args.getProgramPath( )
+                                                          + "resources/icons/"
+                                                          + std::to_string( entry->icon( ) )
+                                                          + ".jpg" ) ) );
     }
     else
     {

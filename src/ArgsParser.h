@@ -1,5 +1,7 @@
 #pragma once
 
+#include <QFileDialog>
+
 #include <string>
 #include <vector>
 

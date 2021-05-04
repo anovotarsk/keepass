@@ -74,6 +74,7 @@ private:
 
     EntryForm *m_entry_form;
 
+    friend class Form;
     friend class EntryForm;
     friend class IconChooser;
 };

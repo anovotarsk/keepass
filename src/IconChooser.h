@@ -40,7 +40,7 @@ public:
 
 private:
     Ui::IconChooser *ui;
-    EntryForm *m_entry_form;
+    Form *m_form;
     IconContainer *m_icon_container;
 
     friend class IconContainer;

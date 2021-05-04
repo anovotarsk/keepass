@@ -17,7 +17,7 @@ void IconContainer::paintEvent(QPaintEvent *event)
     {
         for ( int j = 0; j < 10; j++ )
         {
-            if ( uint32_t( i  * 10 + j ) == m_parent->m_entry_form->m_entry->icon( ) )
+            if ( uint32_t( i  * 10 + j ) == m_parent->m_form->m_icon )
             {
                 QColor c( 0, 160, 255, 80 );
                 painter.fillRect( 30 * j, 30 * i, 23, 23, c );
@@ -40,10 +40,8 @@ void IconContainer::mousePressEvent(QMouseEvent *event)
         int x = event->x( ) - 3;
         int y = event->y( ) - 3;
 
-        m_parent->m_entry_form->m_entry->set_icon( (x / 30)  + 10 * (y / 30)  );
+        m_parent->m_form->m_icon = (x / 30)  + 10 * (y / 30);
         this->update( );
-        m_parent->m_entry_form->update( );
-        m_parent->m_entry_form->main_window->update( );
     }
 }
 
@@ -54,10 +52,10 @@ IconChooser::IconChooser( EntryForm *main,
                           QWidget *parent ) :
     QDialog(parent),
     ui(new Ui::IconChooser),
-    m_entry_form( main ),
+    m_form( main ),
     m_icon_container( new IconContainer(
                           this,
-                          m_entry_form->main_window->args.getProgramPath( )
+                          m_form->main_window->args.getProgramPath( )
                           + "resources/icons/" ) )
 {
     ui->setupUi(this);
