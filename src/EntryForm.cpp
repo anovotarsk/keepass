@@ -76,7 +76,8 @@ void EntryForm::on_del_clicked( )
 {
     UTreeWidgetItem *item = static_cast<UTreeWidgetItem *>( main_window->ui->treeWidget->currentItem( ) );
 
-    auto entries = item->getGroup( )->Entries( );
+    std::vector<std::shared_ptr<Entry>>& entries =
+            const_cast<std::vector<std::shared_ptr<Entry>>&>( item->getGroup( )->Entries( ) );
 
     uint32_t i = 0;
     while ( i < entries.size( ) )
@@ -94,10 +95,8 @@ void EntryForm::on_del_clicked( )
     }
     entries.resize( entries.size( ) - 1 );
 
-    keepass::Key key( main_window->args.getKey( ) );
-    keepass::KdbxFile file;
-    file.Export( main_window->args.getFile( ), *( main_window->dt ), key );
-    main_window->on_treeWidget_itemClicked( item, 0 );
+//    keepass::Key key( main_window->args.getKey( ) );
+//    keepass::KdbxFile file;
+//    file.Export( main_window->args.getFile( ), *( main_window->dt ), key );
     close( );
-    destroy( );
 }

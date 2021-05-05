@@ -136,7 +136,6 @@ void MainWindow::on_treeWidget_itemClicked(QTreeWidgetItem *item, int column)
                                                           + ".jpg" ) ) );
         item->setEntry( entry );
     }
-
 }
 
 void MainWindow::on_passList_itemDoubleClicked(QTreeWidgetItem *item, int column)
@@ -155,6 +154,7 @@ void MainWindow::on_passList_itemDoubleClicked(QTreeWidgetItem *item, int column
                                                           + "resources/icons/"
                                                           + std::to_string( entry->icon( ) )
                                                           + ".jpg" ) ) );
+        ui->treeWidget->itemClicked( ui->treeWidget->currentItem( ), 0 );
     }
     else
     {

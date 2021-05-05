@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.11.0, 2021-05-01T01:37:01. -->
+<!-- Written by QtCreator 4.11.0, 2021-05-05T11:25:09. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -64,7 +64,7 @@
   <valuemap type="QVariantMap">
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Imported Kit</value>
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Imported Kit</value>
-   <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">{c2a4b9c4-bdc3-477d-95f1-5a455e574d7f}</value>
+   <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">{5f610dc7-87f2-4941-9784-dad838a03e24}</value>
    <value type="int" key="ProjectExplorer.Target.ActiveBuildConfiguration">0</value>
    <value type="int" key="ProjectExplorer.Target.ActiveDeployConfiguration">0</value>
    <value type="int" key="ProjectExplorer.Target.ActiveRunConfiguration">0</value>
@@ -187,7 +187,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">keepass</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.keepass</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">keepass</value>
-    <value type="QString" key="RunConfiguration.Arguments">level.kdbx qwe</value>
+    <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
