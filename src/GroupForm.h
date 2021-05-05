@@ -5,10 +5,12 @@
 
 #include <group.hh>
 
-#include "IconChooser.h"
 #include "Form.h"
 
 using namespace keepass;
+
+class IconChooser;
+class IconContainer;
 
 namespace Ui {
 class GroupForm;
@@ -22,6 +24,16 @@ public:
     explicit GroupForm( MainWindow *main,
                         QWidget *parent = nullptr);
     ~GroupForm();
+
+    void setGroup( std::shared_ptr<Group> group );
+    std::shared_ptr<Group> getGroup( );
+
+    int exec() override;
+
+private slots:
+    void on_del_clicked();
+    void on_save_clicked();
+    void on_icon_clicked();
 
 private:
     Ui::GroupForm *ui;

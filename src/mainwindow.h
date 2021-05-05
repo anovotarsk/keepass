@@ -16,6 +16,7 @@
 #include "ArgsParser.h"
 #include "UTreeWidgetItem.h"
 #include "EntryForm.h"
+#include "GroupForm.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -55,6 +56,7 @@ public:
                        const std::vector<std::shared_ptr<Group>>* groups = nullptr );
 
 private slots:
+    void on_treeWidget_itemDoubleClicked(QTreeWidgetItem *item, int column);
     void on_passList_itemDoubleClicked(QTreeWidgetItem *item, int column);
     void on_treeWidget_itemClicked( QTreeWidgetItem *item, int column );
 
@@ -73,9 +75,11 @@ private:
     QClipboard *m_clipboard;
 
     EntryForm *m_entry_form;
+    GroupForm *m_group_form;
 
     friend class Form;
     friend class EntryForm;
+    friend class GroupForm;
     friend class IconChooser;
 };
 #endif // MAINWINDOW_H

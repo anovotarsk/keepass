@@ -48,7 +48,7 @@ void IconContainer::mousePressEvent(QMouseEvent *event)
 
 // IconChooser
 
-IconChooser::IconChooser( EntryForm *main,
+IconChooser::IconChooser( Form *main,
                           QWidget *parent ) :
     QDialog(parent),
     ui(new Ui::IconChooser),

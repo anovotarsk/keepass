@@ -60,12 +60,14 @@ MainWindow::MainWindow( int argc, char* argv[], QClipboard *clipboard, QWidget *
     fillTreeViev( );
 
     m_entry_form = new EntryForm( this );
+    m_group_form = new GroupForm( this );
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
     delete m_entry_form;
+    delete m_group_form;
 }
 
 void MainWindow::fillTreeViev( UTreeWidgetItem *parent,
@@ -73,6 +75,7 @@ void MainWindow::fillTreeViev( UTreeWidgetItem *parent,
 {
     if ( parent == nullptr )
     {
+        ui->treeWidget->clear( );
         parent = new UTreeWidgetItem( ui->treeWidget );
 
         ui->treeWidget->addTopLevelItem( parent );
@@ -104,6 +107,7 @@ void MainWindow::fillTreeViev( UTreeWidgetItem *parent,
             fillTreeViev( item, &(*groups)[ i ]->Groups( ) );
         }
     }
+    ui->treeWidget->expandAll( );
 }
 
 
@@ -160,4 +164,17 @@ void MainWindow::on_passList_itemDoubleClicked(QTreeWidgetItem *item, int column
     {
         m_clipboard->setText( item->text( column ) );
     }
+}
+
+void MainWindow::on_treeWidget_itemDoubleClicked(QTreeWidgetItem *item, int column)
+{
+    auto group = static_cast<UTreeWidgetItem*>( item )->getGroup( );
+    m_group_form->setGroup( group );
+    m_group_form->exec( );
+    item->setText( 0, QString::fromStdString( group->name( ) ) );
+    item->setIcon( 0,  QIcon( QString::fromStdString( args.getProgramPath( )
+                                                      + "resources/icons/"
+                                                      + std::to_string( group->icon( ) )
+                                                      + ".jpg" ) ) );
+    fillTreeViev( );
 }

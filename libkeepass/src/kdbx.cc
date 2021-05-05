@@ -852,14 +852,14 @@ void KdbxFile::ParseXml(std::istream& src,
   if (it != group_pool_.end()) {
     meta->set_last_selected_group(it->second);
   } else {
-    assert(false);
+    //assert(false);
   }
 
   it = group_pool_.find(meta_node.child_value("LastTopVisibleGroup"));
   if (it != group_pool_.end()) {
     meta->set_last_visible_group(it->second);
   } else {
-    assert(false);
+    //assert(false);
   }
 }
 

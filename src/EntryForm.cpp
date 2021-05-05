@@ -68,8 +68,16 @@ void EntryForm::on_save_clicked( )
     this->close( );
 
     keepass::Key key( main_window->args.getKey( ) );
-    keepass::KdbxFile file;
-    file.Export( main_window->args.getFile( ), *( main_window->dt ), key );
+    if ( main_window->type == Kdbx )
+    {
+        keepass::KdbxFile file;
+        file.Export( main_window->args.getFile( ), *( main_window->dt ), key );
+    }
+    if ( main_window->type == Kdb )
+    {
+        keepass::KdbFile file;
+        file.Export( main_window->args.getFile( ), *( main_window->dt ), key );
+    }
 }
 
 void EntryForm::on_del_clicked( )
@@ -95,8 +103,17 @@ void EntryForm::on_del_clicked( )
     }
     entries.resize( entries.size( ) - 1 );
 
-//    keepass::Key key( main_window->args.getKey( ) );
-//    keepass::KdbxFile file;
-//    file.Export( main_window->args.getFile( ), *( main_window->dt ), key );
+    keepass::Key key( main_window->args.getKey( ) );
+    if ( main_window->type == Kdbx )
+    {
+        keepass::KdbxFile file;
+        file.Export( main_window->args.getFile( ), *( main_window->dt ), key );
+    }
+    if ( main_window->type == Kdb )
+    {
+        keepass::KdbFile file;
+        file.Export( main_window->args.getFile( ), *( main_window->dt ), key );
+    }
+
     close( );
 }

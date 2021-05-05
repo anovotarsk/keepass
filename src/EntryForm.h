@@ -38,11 +38,7 @@ public:
 
 private slots:
     void on_del_clicked();
-
-private slots:
     void on_save_clicked();
-
-private slots:
     void on_icon_clicked( );
 
 private:
@@ -50,7 +46,6 @@ private:
     IconChooser *icon_chooser;
 
     std::shared_ptr<Entry> m_entry;
-    //Entry *m_entry;
 
     friend class IconChooser;
     friend class IconContainer;

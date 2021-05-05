@@ -34,7 +34,7 @@ class IconChooser : public QDialog
     Q_OBJECT
 
 public:
-    explicit IconChooser( EntryForm *main,
+    explicit IconChooser( Form *main,
                           QWidget *parent = nullptr );
     ~IconChooser( );
 
