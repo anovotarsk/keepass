@@ -6,8 +6,13 @@
 #include <QTreeWidgetItem>
 #include <QIcon>
 #include <QClipboard>
+#include <QMessageBox>
+#include <QFileDialog>
+#include <QInputDialog>
 
 #include <iostream>
+#include <exception>
+#include <memory>
 
 #include <kdbx.hh>
 #include <kdb.hh>
@@ -54,6 +59,12 @@ public:
 
     void fillTreeViev( UTreeWidgetItem *parent = nullptr,
                        const std::vector<std::shared_ptr<Group>>* groups = nullptr );
+
+private slots:
+    void on_actionOpen_File_triggered();
+    void on_actionNew_File_triggered();
+    void on_actionAdd_Group_triggered();
+    void on_actionAdd_Entry_triggered();
 
 private slots:
     void on_treeWidget_itemDoubleClicked(QTreeWidgetItem *item, int column);

@@ -21,6 +21,7 @@ public:
 
     ArgsStatus getStatus( );
     std::string getProgramPath( );
+    std::string getProgram( );
     std::string getFile( );
     std::string getKey( );
     std::pair< std::string, std::string > getFileAndKey( );

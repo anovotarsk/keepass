@@ -103,7 +103,50 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionNew_File"/>
+   <addaction name="actionOpen_File"/>
+   <addaction name="actionAdd_Entry"/>
+   <addaction name="actionAdd_Group"/>
   </widget>
+  <action name="actionAdd_Entry">
+   <property name="icon">
+    <iconset>
+     <normalon>../resources/icons/0.jpg</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Add Entry</string>
+   </property>
+  </action>
+  <action name="actionAdd_Group">
+   <property name="icon">
+    <iconset>
+     <normaloff>../resources/icons/48.jpg</normaloff>../resources/icons/48.jpg</iconset>
+   </property>
+   <property name="text">
+    <string>Add Group</string>
+   </property>
+  </action>
+  <action name="actionNew_File">
+   <property name="icon">
+    <iconset>
+     <normalon>../resources/new_file.jpg</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>New File</string>
+   </property>
+  </action>
+  <action name="actionOpen_File">
+   <property name="icon">
+    <iconset>
+     <normalon>../resources/open_file.jpg</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Open File</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

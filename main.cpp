@@ -5,7 +5,6 @@
 #include "kdbx.hh"
 #include "key.hh"
 
-#include "ArgsParser.h"
 #include "mainwindow.h"
 
 using namespace keepass;
